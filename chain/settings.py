@@ -148,4 +148,4 @@ MEDIA_URL = '/media/'
 # https://pypi.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-CSRF_TRUSTED_ORIGINS = ['chainprotocol.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://chainprotocol.up.railway.app/']
