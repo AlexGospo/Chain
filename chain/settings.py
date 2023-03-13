@@ -23,14 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = 'django-insecure-ylbbt6sg@(roe!_+%ks7@h-fm-oiv*blu9f#wf3=#8om=&rlm6'
 
 import os
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-ylbbt6sg@(roe!_+%ks7@h-fm-oiv*blu9f#wf3=#8om=&rlm6')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'djangoylbbt6sg@(roe!_+%ks7@h-fm-oiv*blu9f#wf3=#8om=&rlm6')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = False
 
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chainprotocol.up.railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -43,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.static',
 ]
 
 MIDDLEWARE = [
@@ -126,14 +124,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-#STATIC_URL = 'staticfiles/'
-STATIC_URL = '/static/'
+#STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 
-#STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+#STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'static'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "media"),
 ]
 
 # Default primary key field type
@@ -145,6 +143,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
-# Simplified staticfiles file serving.
+# Simplified static file serving.
 # https://pypi.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CSRF_TRUSTED_ORIGINS = ['chainprotocol.up.railway.app']
